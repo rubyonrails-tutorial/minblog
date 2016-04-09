@@ -33,14 +33,14 @@ RSpec.describe PagesController, type: :controller do
     end    
   end
   
-  describe "GET 'about'" do
+  describe "GET #about" do
     it "devrait réussir" do
       get 'about'
       response.should be_success
     end
  
     it "devrait avoir le bon titre" do
-      get 'home'
+      get 'about'
       response.should have_selector("title",
         :content => @base_title + " | About")
     end    
