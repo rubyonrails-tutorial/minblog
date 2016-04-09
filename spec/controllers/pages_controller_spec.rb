@@ -36,7 +36,7 @@ RSpec.describe PagesController, type: :controller do
   describe "GET #about" do
     it "devrait réussir" do
       get 'about'
-      response.should be_success
+      expect(response).to have_http_status(:success)
     end
  
     it "devrait avoir le bon titre" do
