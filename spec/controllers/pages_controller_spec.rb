@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PagesController, type: :controller do
   render_views
   
-  before(:each) do
+  before(:all) do
     @base_titre = "Mini Blog"
   end  
 
