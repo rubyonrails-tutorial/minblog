@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -45,3 +45,13 @@ group :development do
   gem 'spring'
 end
 
+group :development do
+  # rspec-rails for SDL RSpec
+  gem 'rspec-rails', '3.4.2 '
+end
+
+group :test do
+  # rspec for execute SDL RSpec
+  gem 'rspec', '3.4.0'
+  gem 'webrat', '0.7.3'
+end
