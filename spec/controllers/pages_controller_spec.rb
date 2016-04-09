@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
   render_views
+  
+  before(:each) do
+    @base_titre = "Mini Blog"
+  end  
 
   describe "GET #home" do
     it "returns http success" do
@@ -12,7 +16,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'home'
       response.should have_selector("title",
-        :content => "Mini Blog | Home")
+        :content => @base_title + " | Home")
     end
   end
 
@@ -25,7 +29,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'home'
       response.should have_selector("title",
-        :content => "Mini Blog | Contact")
+        :content => @base_title + " | Contact")
     end    
   end
   
@@ -38,7 +42,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'home'
       response.should have_selector("title",
-        :content => "Mini Blog | About")
+        :content => @base_title + " | About")
     end    
   end
 end
