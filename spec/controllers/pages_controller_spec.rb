@@ -12,7 +12,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'home'
       response.should have_selector("title",
-        :content => "Mini Blog | Accueil")
+        :content => "Mini Blog | Home")
     end
   end
 
