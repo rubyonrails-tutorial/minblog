@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @title = "Home"
+    byebug
   end
 
   def contact

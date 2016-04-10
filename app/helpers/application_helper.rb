@@ -12,5 +12,6 @@ module ApplicationHelper
     else
       "#{base_title} | #{@title}"
     end
+    byebug
   end
 end
