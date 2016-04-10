@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  match '/pages/contact', :to => 'pages#contact'
-  match '/pages/about',   :to => 'pages#about'
-  match '/pages/help',    :to => 'pages#help'
+  get 'pages/home'
+  get 'pages/contact'
+  get 'pages/about'
+  get 'pages/help'
 
-  root :to => 'pages#home'  
+  root 'pages#home'  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
