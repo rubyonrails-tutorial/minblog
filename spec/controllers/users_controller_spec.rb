@@ -11,7 +11,7 @@ RSpec.describe UsersController, type: :controller do
 
     it "devrait avoir le titre adéquat" do
       get :new
-      expect(response).should have_selector("title", :content => "Sign up")
+      page.should have_selector "title", :content => "Sign up"
     end
   end  
 
