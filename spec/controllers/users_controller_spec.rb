@@ -5,12 +5,12 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #new" do
     it "devrait réussir" do
-      get :new
+      get 'signup'
       expect(response).to have_http_status(:success)
     end
 
     it "devrait avoir le titre adéquat" do
-      get :new
+      get 'signup'
       expect(response).should have_selector("title", :content => "Sign up")
     end
   end  
