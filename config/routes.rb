@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/new'
+  get 'users/signup'
 
   get 'pages/home'
   get 'pages/contact'
