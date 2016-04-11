@@ -27,5 +27,15 @@ RSpec.describe User, type: :model do
       bad_guy = User.new(@attr.merge(:name => ""))
       bad_guy.should_not be_valid
     end
+    
+    it "devrait exige une adresse email" do
+      no_email_user = User.new(@attr.merge(:email => ""))
+      no_email_user.should_not be_valid
+    end
+    
+#    it "devrait valider unicite de email" do
+#      no_email_user = User.new(@attr.merge(:email => "user@example.com"))
+#      no_email_user.should_not be_valid
+#    end     
   end
 end
