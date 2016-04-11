@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
  
     it "devrait rejeter les noms trop longs" do
       long_nom = "a" * 21
-      long_nom_user = User.new(@attr.merge(:nom => long_nom))
+      long_nom_user = User.new(@attr.merge(:name => long_nom))
       long_nom_user.should_not be_valid
     end
   end
