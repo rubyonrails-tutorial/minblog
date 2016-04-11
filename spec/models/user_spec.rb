@@ -12,5 +12,17 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe User do
+
+    before(:each) do
+      @attr = { :nom => "Example User", :email => "user@example.com" }
+    end
+
+    it "devrait créer une nouvelle instance dotée des attributs valides" do
+      User.create!(@attr)
+    end
+
+    it "devrait exiger un nom"
+  end
 end
