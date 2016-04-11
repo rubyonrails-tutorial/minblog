@@ -34,8 +34,9 @@ RSpec.describe User, type: :model do
     end
     
     it "devrait valider unicite de email" do
-      no_email_user = User.new(@attr.merge(:email => "user@example.com"))
-      no_email_user.should_not be_valid
+      uniqueness_email_user = User.create!(@attr)
+      uniqueness_email_user = User.new(@attr)
+      uniqueness_email_user.should_not be_valid
     end     
   end
 end
