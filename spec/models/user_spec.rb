@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     end
 
     it "devrait exiger un name" do
-      bad_guy = User.new(@attr.merge(:nom => ""))
+      bad_guy = User.new(@attr.merge(:name => ""))
       bad_guy.should_not be_valid
     end
   end
