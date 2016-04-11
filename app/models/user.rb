@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # attr_accessible :name, :email
   
   validates :name, presence: {message: "Le nom de ne dois pas etre vide."}
-  validates :email, uniqueness: {message: "Cette nom doit etre unique."}
+  validates :name, uniqueness: {message: "Cette nom doit etre unique."}
 
   validates :email, presence: {message: "Le email de ne dois pas etre vide."}
   validates :email, uniqueness: {message: "Cette email doit etre unique"}
