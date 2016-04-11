@@ -26,17 +26,23 @@ RSpec.describe User, type: :model do
     it "devrait exiger un name" do
       bad_guy = User.new(@attr.merge(:name => ""))
       bad_guy.should_not be_valid
-    end
+    end    
     
     it "devrait exige une adresse email" do
       no_email_user = User.new(@attr.merge(:email => ""))
       no_email_user.should_not be_valid
     end
     
-    it "devrait valider unicite de email" do
+    it "devrait valider unicite de name et email" do
       uniqueness_email_user = User.create!(@attr)
       uniqueness_email_user = User.new(@attr)
       uniqueness_email_user.should_not be_valid
-    end     
+    end
+ 
+    it "devrait rejeter les noms trop longs" do
+      long_nom = "a" * 21
+      long_nom_user = User.new(@attr.merge(:nom => long_nom))
+      long_nom_user.should_not be_valid
+    end
   end
 end
