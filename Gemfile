@@ -49,7 +49,7 @@ group :development do
   # rspec-rails for SDL RSpec
   gem 'rspec-rails', '3.4.2 '
   # Ajout des annotations sur les model
-  gem 'annotate', '~> 2.7'  
+  gem 'annotate' 
 end
 
 group :test do
