@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/signup' => 'users#new'
+  get 'users/show' => 'users#show'  
  
   get 'pages/home' => 'pages#home'
   get 'pages/contact' => 'pages#contact'
