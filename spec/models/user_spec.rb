@@ -34,7 +34,8 @@ RSpec.describe User, type: :model do
     end
     
     it "devrait valider unicite de name et email" do
-      uniqueness_email_user = User.create!(@attr)
+      # Place un utilisateur avec un email donné dans la BD.
+      User.create!(@attr)
       uniqueness_email_user = User.new(@attr)
       uniqueness_email_user.should_not be_valid
     end
@@ -59,6 +60,15 @@ RSpec.describe User, type: :model do
         invalid_email_user = User.new(@attr.merge(:email => address))
         invalid_email_user.should_not be_valid
       end
+    end
+
+    it "devrait rejeter une adresse email invalide jusqu'à la casse" do
+      upcased_email = @attr[:email].upcase
+      User.create!(@attr.merge(:email => upcased_email))
+      
+      other_name_and_case_sensitive_email = @attr.merge(:name => @attr[:name]+"_2")
+      user_with_duplicate_email = User.new(other_name_and_case_sensitive_email)
+      user_with_duplicate_email.should_not be_valid
     end    
   end
 end
