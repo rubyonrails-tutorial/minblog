@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name, message: "Le nom doit etre unique."
   validates_length_of :name, maximum: 20, message: "La longueur maximale du nom est 20 lettre."
   
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates_presence_of :email, message: "Le email ne dois pas etre vide."
   validates_uniqueness_of :email, message: "Cette email doit etre unique"
+  validates_format_of :email, :with => VALID_EMAIL_REGEX  
 end
