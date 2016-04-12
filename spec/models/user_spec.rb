@@ -68,6 +68,7 @@ RSpec.describe User, type: :model do
       
       other_name_and_case_sensitive_email = @attr.merge(:name => @attr[:name]+"_2")
       user_with_duplicate_email = User.new(other_name_and_case_sensitive_email)
+      byebug
       user_with_duplicate_email.should_not be_valid
     end    
   end
