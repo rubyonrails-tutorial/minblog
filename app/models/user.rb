@@ -19,6 +19,6 @@ class User < ActiveRecord::Base
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates_presence_of :email, message: "Le email ne dois pas etre vide."
-  validates_uniqueness_of :email, message: "Cette email doit etre unique"
-  validates_format_of :email, :with => VALID_EMAIL_REGEX, :case_sensitive => false, message: "email doit respecter le formt RFC 2822."
+  validates_uniqueness_of :email, confirmation: { case_sensitive: false }, message: "Cette email doit etre unique"
+  validates_format_of :email, :with => VALID_EMAIL_REGEX, confirmation: { case_sensitive: false }, message: "email doit respecter le formt RFC 2822."
 end
