@@ -62,7 +62,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    it "devrait rejeter une adresse email invalide jusqu'à la casse" do
+    it "devrait rejeter une adresse email invalide meme avec le no case_sensitive" do
       upcased_email = @attr[:email].upcase
       User.create!(@attr.merge(:email => upcased_email))
       
