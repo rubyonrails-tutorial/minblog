@@ -3,8 +3,6 @@ ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,6 +31,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 end
@@ -43,17 +43,20 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :development do
+  
   # rspec-rails for SDL RSpec
   gem 'rspec-rails', '3.4.2 '
   # Ajout des annotations sur les model
-  gem 'annotate' 
+  gem 'annotate'  
 end
 
 group :test do
   # rspec for execute SDL RSpec
   gem 'rspec', '3.4.0'
   gem 'webrat', '0.7.3'
+end
+
+group :production do
+  gem 'pg', '~> 0.18.4'
+  gem 'rails_12factor', '~> 0.0.3'  
 end
