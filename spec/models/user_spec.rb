@@ -14,16 +14,16 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   
+  before(:each) do
+    @attr = { 
+      :name => "Example User",
+      :email => "user@example.com",
+      :password => "foobar",
+      :password_confirmation => "foobar"
+    }
+  end  
+  
   describe User do
-
-    before(:each) do
-      @attr = { 
-        :name => "Example User",
-        :email => "user@example.com",
-        :password => "foobar",
-        :password_confirmation => "foobar"
-      }
-    end
 
     it "devrait créer une nouvelle instance dotée des attributs valides" do
       User.create!(@attr)
