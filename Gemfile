@@ -24,6 +24,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Figaro to manage ENV variable
 gem 'figaro'
 
+# Les "attr_accessible" en ete supprimer de puis Rails 4.0 et remplacer de puis les Strong parameters. Read more: https://github.com/rails/protected_attributes
+gem 'protected_attributes', '~> 1.1', '>= 1.1.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
