@@ -64,6 +64,7 @@ group :test do
   # rspec for execute SDL RSpec
   gem 'rspec', '3.4.0'
   gem 'webrat', '0.7.3'
+  gem 'spork', '~> 1.0.0rc4'  
 end
 
 group :production do
