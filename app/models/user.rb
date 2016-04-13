@@ -21,4 +21,10 @@ class User < ActiveRecord::Base
   validates_presence_of :email, message: "Le email ne dois pas etre vide."
   validates_format_of :email, :with => VALID_EMAIL_REGEX, message: "email doit respecter le formt RFC 2822."  
   validates_uniqueness_of :email, case_sensitive: false, message: "Cette email doit etre unique"
+  
+  # Crée automatique l'attribut virtuel 'password_confirmation'.
+  validates :password,
+    :presence     => true,
+    :confirmation => true,
+    :length       => { :within => 6..40 }
 end
