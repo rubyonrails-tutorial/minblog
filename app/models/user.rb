@@ -12,7 +12,7 @@
 class User < ActiveRecord::Base
   # Les "attr_accessible" en ete supprimer de puis Rails 4.0 et remplacer de puis les Strong parameters.
   # attr_accessible :name, :email
-  attr_accessible :nom, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation
   
   validates_presence_of :name, message: "Le nom ne dois pas etre vide."
   validates_uniqueness_of :name, message: "Le nom doit etre unique."
