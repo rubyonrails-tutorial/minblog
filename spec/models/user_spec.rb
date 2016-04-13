@@ -111,7 +111,11 @@ RSpec.describe User, type: :model do
       @user = User.create!(@attr)
     end
 
-    it "devrait avoir un attribut mot de passe crypté" do
+    it "devrait avoir un attribut vertual password" do
+      @user.should respond_to(:password)
+    end    
+    
+    it "devrait avoir un attribut encrypted_password" do
       @user.should respond_to(:encrypted_password)
     end
     
