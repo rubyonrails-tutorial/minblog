@@ -41,6 +41,10 @@ group :development, :test do
   gem 'sqlite3'  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  # Autotest continuous integration
+  gem 'autotest', '~> 4.4', '>= 4.4.6'
+  gem 'autotest-rails-pure', '~> 4.1', '>= 4.1.2'  
 end
 
 group :development do
