@@ -126,7 +126,6 @@ RSpec.describe User, type: :model do
     describe "Methode has_password?" do
 
       it "doit retourner true si les mots de passe coïncident" do
-        byebug
         @user.has_password?(@attr[:password]).should be_true
       end    
 
