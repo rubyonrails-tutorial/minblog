@@ -123,7 +123,7 @@ RSpec.describe User, type: :model do
       @user.encrypted_password.should_not be_blank
     end
 
-    describe "Méthode has_password?" do
+    describe "Methode has_password?" do
 
       it "doit retourner true si les mots de passe coïncident" do
         @user.has_password?(@attr[:password]).should be_true
