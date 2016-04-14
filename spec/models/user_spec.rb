@@ -121,6 +121,17 @@ RSpec.describe User, type: :model do
     
     it "devrait définir le mot de passe crypté" do
       @user.encrypted_password.should_not be_blank
+    end
+
+    describe "Méthode has_password?" do
+
+      it "doit retourner true si les mots de passe coïncident" do
+        @user.has_password?(@attr[:password]).should be_true
+      end    
+
+      it "doit retourner false si les mots de passe divergent" do
+        @user.has_password?("invalide").should be_false
+      end 
     end    
   end  
 end
