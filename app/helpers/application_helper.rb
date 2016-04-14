@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def logo
-     image_tag("open-source-logo.png", :alt => "Application exemple", :class => "round")
+     image_tag("logo-minblog.png", :alt => "Application exemple", :class => "round")
   end
   
   # Retourner un titre basé sur la page.
