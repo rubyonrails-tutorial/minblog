@@ -65,7 +65,8 @@ group :test do
   gem 'rspec', '3.4.0'
   gem 'webrat', '0.7.3'
   gem 'spork', '~> 1.0.0rc4'
-  gem 'capybara', '~> 2.0', '>= 2.0.2'  
+  gem 'capybara', '~> 2.0', '>= 2.0.2'
+  gem 'factory_girl_rails', '~> 4.5'  
 end
 
 group :production do
