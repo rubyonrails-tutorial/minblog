@@ -2,27 +2,28 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  email      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :integer          not null, primary key
+#  name               :string
+#  email              :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  encrypted_password :string
 #
 
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
   
+  before(:each) do
+    @attr = { 
+      :name => "Example User",
+      :email => "user@example.com",
+      :password => "foobar",
+      :password_confirmation => "foobar"
+    }
+  end  
+  
   describe User do
-
-    before(:each) do
-      @attr = { 
-        :name => "Example User",
-        :email => "user@example.com",
-        :password => "foobar",
-        :password_confirmation => "foobar"
-      }
-    end
 
     it "devrait créer une nouvelle instance dotée des attributs valides" do
       User.create!(@attr)
@@ -110,8 +111,45 @@ RSpec.describe User, type: :model do
       @user = User.create!(@attr)
     end
 
-    it "devrait avoir un attribut  mot de passe crypté" do
+    it "devrait avoir un attribut vertual password" do
+      @user.should respond_to(:password)
+    end    
+    
+    it "devrait avoir un attribut encrypted_password" do
       @user.should respond_to(:encrypted_password)
     end
+    
+    it "devrait définir le mot de passe crypté" do
+      @user.encrypted_password.should_not be_blank
+    end
+
+    describe "Methode has_password?" do
+
+      it "doit retourner true si les mots de passe coïncident" do
+        @user.has_password?(@attr[:password]).should be_true
+      end    
+
+      it "doit retourner false si les mots de passe divergent" do
+        @user.has_password?("invalide").should be_false
+      end 
+    end
+    
+    describe "authenticate method" do
+
+      it "devrait retourner nul en cas d'inéquation entre email/mot de passe" do
+        wrong_password_user = User.authenticate(@attr[:email], "wrongpass")
+        wrong_password_user.should be_nil
+      end
+
+      it "devrait retourner nil quand un email ne correspond à aucun utilisateur" do
+        nonexistent_user = User.authenticate("bar@foo.com", @attr[:password])
+        nonexistent_user.should be_nil
+      end
+
+      it "devrait retourner l'utilisateur si email/mot de passe correspondent" do
+        matching_user = User.authenticate(@attr[:email], @attr[:password])
+        matching_user.should == @user
+      end
+    end    
   end  
 end

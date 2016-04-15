@@ -24,6 +24,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Figaro to manage ENV variable
 gem 'figaro'
 
+# Les "attr_accessible" en ete supprimer de puis Rails 4.0 et remplacer de puis les Strong parameters. Read more: https://github.com/rails/protected_attributes
+gem 'protected_attributes', '~> 1.1', '>= 1.1.3'
+
+# For Gravatar user
+gem 'gravatar_image_tag', '~> 1.2'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -38,6 +44,10 @@ group :development, :test do
   gem 'sqlite3'  
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+  # Autotest continuous integration
+  gem 'autotest', '~> 4.4', '>= 4.4.6'
+  gem 'autotest-rails-pure', '~> 4.1', '>= 4.1.2'  
 end
 
 group :development do
@@ -57,6 +67,9 @@ group :test do
   # rspec for execute SDL RSpec
   gem 'rspec', '3.4.0'
   gem 'webrat', '0.7.3'
+  gem 'spork', '~> 1.0.0rc4'
+  gem 'capybara', '~> 2.0', '>= 2.0.2'
+  gem 'factory_girl_rails', '~> 4.5'  
 end
 
 group :production do
