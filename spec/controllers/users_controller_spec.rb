@@ -32,20 +32,18 @@ RSpec.describe UsersController, type: :controller do
     it "devrait avoir une image de profil" do
       get :show, :id => @user
       response.should have_selector("h1>img", :class => "gravatar")
+    end   
+  end
+
+  describe "GET #new" do
+    it "devrait réussir" do
+      get :new
+      expect(response).to have_http_status(:success)
     end
-  end    
-end  
-  
-describe "GET #new" do
-  it "devrait réussir" do
-    get :new
-    expect(response).to have_http_status(:success)
-  end
 
-  it "devrait avoir le titre adéquat" do
-    get :new
-    expect(response).should have_selector("head title", :content => "Sign up")
-  end
-end  
-
+    it "devrait avoir le titre adéquat" do
+      get :new
+      expect(response).should have_selector("head title", :content => "Sign up")
+    end
+  end  
 end
