@@ -42,6 +42,38 @@ a:visited {
     color: #069;
 }
 
+/* Navigation */
+nav {
+  float: right;
+  background: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+nav ul li a:visited {
+  color: #09c;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
 /* Bouton inscription */
 a.signup_button {
     margin-left: auto;
@@ -64,45 +96,41 @@ a.signup_button {
 }
 
 footer {
-  text-align: center;
-  margin-top: 10px;
-  width: 710px;
-  margin-left: auto;
-  margin-right: auto;
+    text-align: center;
+    margin-top: 10px;
+    width: 710px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer nav {
-  float: none;
-}
-
-.pull-right {
-  float: right !important;
+    float: none;  
 }
 
 /* User show page */
 table.profile {
-  width: 100%;
-  margin-bottom: 0;
+    width: 100%;
+    margin-bottom: 0;
 }
 
 td.main {
-  width: 70%;
-  padding: 1em;
+    width: 70%;
+    padding: 1em;
 }
 
 td.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
+    width: 30%;
+    padding: 1em;
+    vertical-align: top;
+    background: #ffc;
 }
 
 .profile img.gravatar {
-  border: 1px solid #999;
-  margin-bottom: -15px;
+    border: 1px solid #999;
+    margin-bottom: -15px;
 }
 
 /* For form sign up */
 div.field, div.actions {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
