@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end  
   
   def create
-    @user = User.find(params[:id])    
+    @user = User.new(params[:user])    
     if @user.save
       # Traite un succès d'enregistrement.
     else
