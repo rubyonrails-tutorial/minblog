@@ -75,6 +75,10 @@ footer nav {
   float: none;
 }
 
+.pull-right {
+  float: right !important;
+}
+
 /* User show page */
 table.profile {
   width: 100%;
