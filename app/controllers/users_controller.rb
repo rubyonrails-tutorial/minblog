@@ -9,6 +9,16 @@ class UsersController < ApplicationController
     @titre = @user.name
   end  
   
+  def create
+    @user = User.find(params[:id])    
+    if @user.save
+      # Traite un succès d'enregistrement.
+    else
+      @titre = "Inscription"
+      render 'new'
+    end  
+  end  
+  
   private
 
   def user_params
