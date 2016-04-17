@@ -89,7 +89,12 @@ RSpec.describe UsersController, type: :controller do
       it "devrait rediriger vers la page d'affichage de l'utilisateur" do
         post :create, :user => @attr
         response.should redirect_to(user_path(assigns(:user)))
-      end    
+      end
+      
+      it "devrait avoir un message de bienvenue" do
+        post :create, :user => @attr
+        flash[:success].should =~ /Welcome to MiniBlog!/i
+      end      
     end    
   end
 end
