@@ -93,7 +93,7 @@ RSpec.describe UsersController, type: :controller do
       
       it "devrait avoir un message de bienvenue" do
         post :create, :user => @attr
-        flash[:success].should =~ /Welcome to MiniBlog!/i
+        flash[:success].should =~ /Welcome to Mini Blog!/i
       end      
     end    
   end
