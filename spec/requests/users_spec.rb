@@ -19,7 +19,6 @@ RSpec.describe "Users", type: :request do
     end
     
     describe "successful" do
-
       it "devrait créer un nouvel utilisateurr" do
         lambda do
           visit signup_path
