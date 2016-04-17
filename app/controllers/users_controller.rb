@@ -12,9 +12,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])    
     if @user.save
-      # Traite un succès d'enregistrement.
+      # succès d'enregistrement et redirection users/:id.
+      redirect_to @user
     else
-      @titre = "Inscription"
+      @titre = "Sign up"
       render 'new'
     end  
   end  
