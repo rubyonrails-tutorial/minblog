@@ -8,12 +8,10 @@ class UsersController < ApplicationController
 
   def show
     @titre = @user.name
-    byebug
   end  
   
   def create
     @user = User.new(user_params)
-    byebug
     if @user.save
       flash[:success] = "Welcome to Mini Blog!"
       # succès d'enregistrement et redirection users/:id.
