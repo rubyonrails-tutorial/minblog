@@ -17,7 +17,8 @@ class UsersController < ApplicationController
       # succès d'enregistrement et redirection users/:id.
       redirect_to @user
     else
-      byebug
+      @user.password = nil
+      @user.password_confirmation = nil
       render 'new'
     end  
   end  
