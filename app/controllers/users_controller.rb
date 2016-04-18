@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       # succès d'enregistrement et redirection users/:id.
       redirect_to @user
     else
-      @titre = "Sign up"
+      byebug
       render 'new'
     end  
   end  
