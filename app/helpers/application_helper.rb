@@ -11,7 +11,7 @@ module ApplicationHelper
   end
  
   def errors_full_messages
-    p
+    p = ""
     flash.each do |key, value|
       p += "<div class='flash #{key}'>#{value}</div>".html_safe
     end
