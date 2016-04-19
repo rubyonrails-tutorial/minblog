@@ -41,5 +41,36 @@ RSpec.describe "LayoutLinks", type: :request do
     response.should have_selector('head title', :content => "Home")
     click_link "Sign up"
     response.should have_selector('head title', :content => "Sign up")
-  end  
+  end
+
+  describe "quand pas identifié" do
+    it "doit avoir un lien de connexion" do
+      visit root_path
+      response.should have_selector("a", :href => signin_path,
+        :content => "Sign in")
+    end
+  end
+
+  describe "quand identifié" do
+
+    before(:each) do
+      @user = Factory(:user)
+      visit signin_path
+      fill_in :email,    :with => @user.email
+      fill_in "Password", :with => @user.password
+      click_button
+    end
+
+    it "devrait avoir un lien de déconnxion" do
+      visit root_path
+      response.should have_selector("a", :href => signout_path,
+        :content => "Sign out")
+    end
+
+    it "devrait avoir un lien vers le profil" do
+      visit root_path
+      response.should have_selector("a", :href => user_path(@user),
+        :content => "Profile")
+    end
+  end
 end
