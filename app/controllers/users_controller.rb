@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      sign_in @user
       flash[:success] = "Welcome to Mini Blog!"
       # succès d'enregistrement et redirection users/:id.
       redirect_to @user

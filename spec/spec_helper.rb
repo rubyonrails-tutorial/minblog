@@ -54,7 +54,11 @@ Spork.prefork do
     config.expect_with :rspec do |c|
       c.syntax = :expect
     end
-  end  
+  end
+
+  def test_sign_in(user)
+    controller.sign_in(user)
+  end
 end
 
 Spork.each_run do

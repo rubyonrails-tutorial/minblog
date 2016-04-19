@@ -94,6 +94,11 @@ RSpec.describe UsersController, type: :controller do
       it "devrait avoir un message de bienvenue" do
         post :create, :user => @attr
         flash[:success].should =~ /Welcome to Mini Blog!/i
+      end
+
+      it "devrait identifier l'utilisateur" do
+        post :create, :user => @attr
+        controller.should be_signed_in
       end      
     end    
   end
