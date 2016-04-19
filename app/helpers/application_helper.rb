@@ -11,7 +11,7 @@ module ApplicationHelper
   end
  
   def errors_full_messages
-    p = ""
+    byebug
     flash.each do |key, value|
       p += "<div class='flash #{key}'>#{value}</div>"
     end
