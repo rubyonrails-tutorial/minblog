@@ -13,7 +13,7 @@ module ApplicationHelper
   def errors_full_messages
     p
     flash.each do |key, value|
-     p+= "<div class='flash "+key+"'>"+value+"</div>"
+     p+= "<div class='flash " << key  << "'>" << value  << "</div>"
     end
     p
   end
