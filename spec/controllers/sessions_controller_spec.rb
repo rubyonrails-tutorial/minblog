@@ -6,12 +6,12 @@ RSpec.describe SessionsController, type: :controller do
   describe "GET #new" do
     it "devrait réussir" do
       get :new
-      response.should be_success
+      rexpect(response).should be_success
     end
 
     it "devrait avoir le bon titre" do
       get :new
-      response.should have_selector("titre", :content => "Sign in")
+      expect(response).should have_selector("titre", :content => "Sign in")
     end
   end
 
