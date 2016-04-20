@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       params[:session][:password])
     if user.nil?
       # Crée un message d'erreur et rend le formulaire d'identification.
-      flash.now[:error] = "Invalid Email or Password."
+      flash.now[:error] = "Invalid email or password."
       @titre = "Sign in"      
       render 'new'
     else
