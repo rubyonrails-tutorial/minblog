@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   validates_presence_of :name
   validates_uniqueness_of :name
-  validates_length_of :name, maximum: 20
+  validates_length_of :name, maximum: 25
   
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates_presence_of :email
