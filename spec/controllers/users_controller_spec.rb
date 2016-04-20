@@ -169,7 +169,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "devrait afficher un message flash" do
         put :update, :id => @user, :user => @attr
-        flash[:success].should =~ /actualisé/
+        flash[:success].should =~ /Update profile/
       end
     end
   end
