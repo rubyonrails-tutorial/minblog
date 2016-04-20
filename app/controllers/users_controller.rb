@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    byebug
     @titel = "Edit user"
   end
   
