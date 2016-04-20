@@ -134,7 +134,7 @@ RSpec.describe UsersController, type: :controller do
 
       before(:each) do
         @attr = { :email => "", :nom => "", :password => "",
-                  :password_confirmation => "" }
+          :password_confirmation => "" }
       end
 
       it "devrait retourner la page d'édition" do
@@ -152,7 +152,7 @@ RSpec.describe UsersController, type: :controller do
 
       before(:each) do
         @attr = { :nom => "New Name", :email => "user@example.org",
-                  :password => "barbaz", :password_confirmation => "barbaz" }
+          :password => "barbaz", :password_confirmation => "barbaz" }
       end
 
       it "devrait modifier les caractéristiques de l'utilisateur" do
@@ -173,4 +173,23 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+  
+  describe "authentification des pages edit/update" do
+    before(:each) do
+      @user = Factory(:user)
+    end
+
+    describe "pour un utilisateur non identifié" do
+
+      it "devrait refuser l'acccès à l'action 'edit'" do
+        get :edit, :id => @user
+        response.should redirect_to(signin_path)
+      end
+
+      it "devrait refuser l'accès à l'action 'update'" do
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(signin_path)
+      end
+    end
+  end  
 end

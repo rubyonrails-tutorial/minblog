@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate, only: [:edit, :updat]   
   before_action :set_user, only: [:show, :edit, :update]
 
   def new
@@ -38,6 +39,10 @@ class UsersController < ApplicationController
   end
   
   private
+
+  def authenticate
+    deny_access unless signed_in?
+  end
 
   def set_user
     @user = User.find(params[:id])
