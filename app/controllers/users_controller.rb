@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :update]
 
   def new
     @titel = "Sign up"
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @titre = @user.name
+    @titel = @user.name
   end  
   
   def create
@@ -22,7 +22,11 @@ class UsersController < ApplicationController
       @user.password_confirmation = nil
       render 'new'
     end  
-  end  
+  end
+
+  def update
+    @titel = "Edit user"
+  end
   
   private
 

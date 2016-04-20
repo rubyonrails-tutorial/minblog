@@ -4,7 +4,6 @@ RSpec.describe UsersController, type: :controller do
   render_views
 
   describe "GET #show" do
-
     before(:each) do
       @user = Factory(:user)
     end
@@ -50,7 +49,6 @@ RSpec.describe UsersController, type: :controller do
   describe "POST #create" do
 
     describe "échec" do
-
       before(:each) do
         @attr = { :name => "", :email => "", :password => "",
           :password_confirmation => "" }
@@ -74,7 +72,6 @@ RSpec.describe UsersController, type: :controller do
     end
     
     describe "succès" do
-
       before(:each) do
         @attr = { :name => "New User", :email => "user@example.com",
           :password => "foobar", :password_confirmation => "foobar" }
@@ -102,4 +99,28 @@ RSpec.describe UsersController, type: :controller do
       end      
     end    
   end
+  
+  describe "GET #edit" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+
+    it "devrait réussir" do
+      get :edit, :id => @user
+      response.should be_success
+    end
+
+    it "devrait avoir le bon titre" do
+      get :edit, :id => @user
+      response.should have_selector("title", :content => "Edit user")
+    end
+
+    it "devrait avoir un lien pour changer l'image Gravatar" do
+      get :edit, :id => @user
+      gravatar_url = "http://gravatar.com/emails"
+      response.should have_selector("a", :href => gravatar_url,
+        :content => "change")
+    end
+  end  
 end

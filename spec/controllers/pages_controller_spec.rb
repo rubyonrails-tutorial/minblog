@@ -4,7 +4,7 @@ RSpec.describe PagesController, type: :controller do
   render_views
   
   before(:each) do
-    @base_titre = "Mini Blog"
+    @base_titel = "Mini Blog"
   end  
 
   describe "GET #home" do
@@ -16,7 +16,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'home'
       response.should have_selector('head title',
-        :text => @base_title + " | Home")
+        :text => @base_titel + " | Home")
     end
   end
 
@@ -29,7 +29,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'contact'
       response.should have_selector('head title',
-        :text => @base_title + " | Contact")
+        :text => @base_titel + " | Contact")
     end    
   end
   
@@ -42,7 +42,7 @@ RSpec.describe PagesController, type: :controller do
     it "devrait avoir le bon titre" do
       get 'about'
       response.should have_selector('head title',
-        :text => @base_title + " | About")
+        :text => @base_titel + " | About")
     end    
   end
 end

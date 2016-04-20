@@ -11,7 +11,7 @@ RSpec.describe SessionsController, type: :controller do
 
     it "devrait avoir le bon titre" do
       get :new
-      expect(response).should have_selector("titre", :content => "Sign in")
+      expect(response).should have_selector("title", :content => "Sign in")
     end
   end
   

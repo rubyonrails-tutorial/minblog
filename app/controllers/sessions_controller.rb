@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @titre = "Sign in"
+    @titel = "Sign in"
   end
 
   def create
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     if user.nil?
       # Crée un message d'erreur et rend le formulaire d'identification.
       flash.now[:error] = "Invalid email / password."
-      @titre = "Sign in"      
+      @titel = "Sign in"      
       render 'new'
     else
       # Authentifie l'utilisateur et redirige vers la page d'affichage.
