@@ -30,6 +30,9 @@ gem 'protected_attributes', '~> 1.1', '>= 1.1.3'
 # For Gravatar user
 gem 'gravatar_image_tag', '~> 1.2'
 
+# Add data paginaiton
+gem 'will_paginate', '~> 3.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
