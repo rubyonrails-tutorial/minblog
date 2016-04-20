@@ -193,7 +193,7 @@ RSpec.describe UsersController, type: :controller do
     end
     
     describe "pour un utilisateur identifié" do
-    # Utilisateur identifier, mais qui tante de modifier un autre utilisateur que lui
+      # Utilisateur identifier, mais qui tante de modifier un autre utilisateur que lui
       before(:each) do
         wrong_user = Factory(:user, :email => "user@example.net")
         test_sign_in(wrong_user)
@@ -210,4 +210,42 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+  
+  describe "GET #index" do
+    describe "pour utilisateur non identifiés" do
+      it "devrait refuser l'accès" do
+        get :index
+        response.should redirect_to(signin_path)
+        flash[:notice].should =~ /identify/i
+      end
+    end
+
+    describe "pour un utilisateur identifié" do
+
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        second = Factory(:user, :email => "another@example.com")
+        third  = Factory(:user, :email => "another@example.net")
+
+        @users = [@user, second, third]
+      end
+
+      it "devrait réussir" do
+        get :index
+        response.should be_success
+      end
+
+      it "devrait avoir le bon titre" do
+        get :index
+        response.should have_selector("title", :content => "Users list")
+      end
+
+      it "devrait avoir un élément pour chaque utilisateur" do
+        get :index
+        @users.each do |user|
+          response.should have_selector("li", :content => user.name)
+        end
+      end
+    end
+  end  
 end

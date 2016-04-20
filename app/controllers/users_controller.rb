@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authenticate, only: [:edit, :updat]
+  before_action :authenticate, only: [:index, :edit, :updat]
   before_action :correct_user, only: [:edit, :updat]  
   before_action :set_user, only: [:show]
 
+  def index
+    @titel = "Users list"
+    @users = User.all
+  end
+  
   def new
     @titel = "Sign up"
     @user = User.new    
