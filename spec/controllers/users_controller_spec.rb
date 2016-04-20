@@ -122,5 +122,55 @@ RSpec.describe UsersController, type: :controller do
       response.should have_selector("a", :href => gravatar_url,
         :content => "change")
     end
-  end  
+  end
+  
+  describe "PUT #update" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+
+    describe "Échec" do
+
+      before(:each) do
+        @attr = { :email => "", :nom => "", :password => "",
+                  :password_confirmation => "" }
+      end
+
+      it "devrait retourner la page d'édition" do
+        put :update, :id => @user, :user => @attr
+        response.should render_template('edit')
+      end
+
+      it "devrait avoir le bon titre" do
+        put :update, :id => @user, :user => @attr
+        response.should have_selector("title", :content => "Edit user")
+      end
+    end
+
+    describe "succès" do
+
+      before(:each) do
+        @attr = { :nom => "New Name", :email => "user@example.org",
+                  :password => "barbaz", :password_confirmation => "barbaz" }
+      end
+
+      it "devrait modifier les caractéristiques de l'utilisateur" do
+        put :update, :id => @user, :user => @attr
+        @user.reload
+        @user.name.should  == @attr[:name]
+        @user.email.should == @attr[:email]
+      end
+
+      it "devrait rediriger vers la page d'affichage de l'utilisateur" do
+        put :update, :id => @user, :user => @attr
+        response.should redirect_to(user_path(@user))
+      end
+
+      it "devrait afficher un message flash" do
+        put :update, :id => @user, :user => @attr
+        flash[:success].should =~ /actualisé/
+      end
+    end
+  end
 end

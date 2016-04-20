@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def new
     @titel = "Sign up"
@@ -26,6 +26,16 @@ class UsersController < ApplicationController
 
   def edit
     @titel = "Edit user"
+  end
+
+  def update
+    if @user.updat_attributes(params[:user])
+      flash[:success] = "Update profile."
+      redirect_to @user
+    else
+      @titel = "Update user"
+      render 'edit'
+    end
   end
   
   private
