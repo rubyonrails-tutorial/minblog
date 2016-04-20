@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :authenticate, only: [:edit, :updat]   
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :authenticate, only: [:edit, :updat]
+  before_action :correct_user, only: [:edit, :updat]  
+  before_action :set_user, only: [:show]
 
   def new
     @titel = "Sign up"
@@ -43,6 +44,11 @@ class UsersController < ApplicationController
   def authenticate
     deny_access unless signed_in?
   end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless current_user?(@user)
+  end  
 
   def set_user
     @user = User.find(params[:id])
