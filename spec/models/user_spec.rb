@@ -8,6 +8,7 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  encrypted_password :string
+#  salt               :string
 #
 
 require 'rails_helper'
