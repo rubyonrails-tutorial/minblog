@@ -4,7 +4,7 @@ namespace :db do
   desc "Peupler la base de données"
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
-    User.create!(:nom => "Utilisateur exemple",
+    User.create!(:name => "Utilisateur exemple",
                  :email => "example@railstutorial.org",
                  :password => "bilred",
                  :password_confirmation => "bilred")
@@ -12,7 +12,7 @@ namespace :db do
       nom  = Faker::Name.name
       email = "example-#{n+1}@railstutorial.org"
       password  = "motdepasse"
-      User.create!(:nom => nom,
+      User.create!(:name => nom,
                    :email => email,
                    :password => password,
                    :password_confirmation => password)
