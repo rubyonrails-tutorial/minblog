@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end  
   end
 
-  def update
+  def edit
     @titel = "Edit user"
   end
   
