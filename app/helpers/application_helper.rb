@@ -11,9 +11,9 @@ module ApplicationHelper
   end
  
   def errors_full_messages
-    byebug
+    p = ""
     flash.each do |key, value|
-      p += "<div class='flash #{key}'>#{value}</div>"
+      p.concat("<div class='flash #{key}'>#{value}</div>".to_s)
     end
     p
   end
