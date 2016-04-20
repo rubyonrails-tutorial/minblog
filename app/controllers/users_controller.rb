@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update]
+  before_action :set_user, only: [:show, :edit]
 
   def new
     @titel = "Sign up"
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    byebug
     @titel = "Edit user"
   end
   
