@@ -9,6 +9,7 @@
 #  updated_at         :datetime         not null
 #  encrypted_password :string
 #  salt               :string
+#  admin              :boolean          default("f")
 #
 
 require 'digest'
