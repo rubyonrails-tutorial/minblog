@@ -6,10 +6,11 @@ namespace :db do
 end
 
 def make_users
-  User.create!(name: "Example User",
+  admin = User.create!(name: "Example User",
     email: "example@railstutorial.org",
     password: "foobar",
     password_confirmation: "foobar")
+  admin.toggle!(:admin)
   
   99.times do |n|
     name  = Faker::Name.name
