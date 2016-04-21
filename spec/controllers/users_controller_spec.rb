@@ -220,7 +220,7 @@ RSpec.describe UsersController, type: :controller do
       end
     end
 
-    describe "pour un utilisateur identifié" do
+    describe "pour les utilisateurs identifiés" do
 
       before(:each) do
         @user = test_sign_in(Factory(:user))
@@ -228,6 +228,9 @@ RSpec.describe UsersController, type: :controller do
         third  = Factory(:user, :email => "another@example.net")
 
         @users = [@user, second, third]
+        30.times do
+          @users << Factory(:user, :email => Factory.next(:email))
+        end        
       end
 
       it "devrait réussir" do
@@ -242,10 +245,18 @@ RSpec.describe UsersController, type: :controller do
 
       it "devrait avoir un élément pour chaque utilisateur" do
         get :index
-        @users.each do |user|
+        @users[0..2].each do |user|
           response.should have_selector("li", :content => user.name)
         end
       end
+
+      it "devrait paginer les utilisateurs" do
+        get :index
+        response.should have_selector("div.pagination")
+        response.should have_selector("span.disabled", :content => "Previous")
+        response.should have_selector("a", :href => "/users?page=2", :content => "2")
+        response.should have_selector("a", :href => "/users?page=2", :content => "Next")
+      end      
     end
-  end  
+  end
 end

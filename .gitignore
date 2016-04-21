@@ -39,3 +39,4 @@ build/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 /nbproject/
+E:\workspace\minblog\lib\tasks\sample_data.rake
