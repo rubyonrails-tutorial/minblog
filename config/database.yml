@@ -23,7 +23,7 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000  
-  host: ec2-54-243-224-151.compute-1.amazonaws.com
-  database: dam8dqi03tsgob
-  username: blauygyalpsnjz
-  password: LL52LXA5vhpgqfxinEYC5mDwWD
+  host: <%= ENV["PG_HOST"] %>
+  database: <%= ENV["PG_DATABASE"] %>
+  username: <%= ENV["PG_USERNAME"] %>
+  password: <%= ENV["PG_PASSWORD"] %>
