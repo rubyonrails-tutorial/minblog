@@ -1,3 +1,16 @@
+<% if signed_in? %>
+  <table class="front" summary="To identify visitor">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
 <h1>Home page Mini Blog</h1>
 
 <p>
@@ -6,3 +19,6 @@
 </p>
 
 <%= link_to "Sign up now!", users_signup_path, :class => "signup_button round" %>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+<% end %>
