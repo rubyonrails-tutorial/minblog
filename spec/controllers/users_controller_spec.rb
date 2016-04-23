@@ -5,7 +5,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "GET #show" do
     before(:each) do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     it "devrait réussir" do
