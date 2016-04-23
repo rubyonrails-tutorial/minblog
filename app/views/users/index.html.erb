@@ -3,11 +3,7 @@
 <%= will_paginate %>
 
 <ul class="users">
-    <%= render @users %>
-    <% if current_user.admin? %>
-      | <%= link_to "delete", user, method: :delete, 
-        data: { confirm: "Are you sure?", title: "Delete #{user.name}" } %>
-    <% end %>   
+    <%= render @users %>  
 </ul>
 
 <%= will_paginate %>
