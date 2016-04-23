@@ -1,4 +1,4 @@
-<% if @user.errors.any? %>
+<% if object.errors.any? %>
   <div id="error_explanation">
     <h2>The form <%= object.class.to_s.underscore.humanize.downcase %> 
         contains <%= pluralize(object.errors.count, "error") %></h2>
