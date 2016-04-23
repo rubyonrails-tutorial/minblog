@@ -34,6 +34,8 @@ class User < ActiveRecord::Base
   
   before_save :encrypt_password
 
+  has_many :microposts, :dependent => :destroy
+  
   # Retour true si le mot de passe correspond.
   def has_password?(password_soumis)
     # Compare encrypted_password avec la version cryptée de password_soumis.
