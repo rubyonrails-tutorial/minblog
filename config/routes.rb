@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :microposts, :only => [:create, :destroy]
+  
   get 'sessions/signin' => 'sessions#new'
   get 'sessions/signout' => 'sessions#destroy'
   resources :sessions, :only => [:new, :create, :destroy]  
