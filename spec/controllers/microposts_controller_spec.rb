@@ -63,4 +63,35 @@ RSpec.describe MicropostsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE 'destroy'" do
+    describe "pour un utilisateur non auteur du message" do
+
+      before(:each) do
+        @user = Factory(:user)
+        wrong_user = Factory(:user, :email => Factory.next(:email))
+        test_sign_in(wrong_user)
+        @micropost = Factory(:micropost, :user => @user)
+      end
+
+      it "devrait refuser la suppression du message" do
+        delete :destroy, :id => @micropost
+        response.should redirect_to(root_path)
+      end
+    end
+
+    describe "pour l'auteur du message" do
+
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        @micropost = Factory(:micropost, :user => @user)
+      end
+
+      it "devrait détruire le micro-message" do
+        lambda do 
+          delete :destroy, :id => @micropost
+        end.should change(Micropost, :count).by(-1)
+      end
+    end
+  end
 end
