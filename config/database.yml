@@ -24,9 +24,9 @@ production:
   pool: 5
   timeout: 5000
   host: localhost
-  database: dam8dqi03tsgob
-  username: blauygyalpsnjz
-  password: LL52LXA5vhpgqfxinEYC5mDwWD
+  database: develop
+  username: develop
+  password: develop
 
 #  host: <%= ENV["PG_HOST"] %>
 #  database: <%= ENV["PG_DATABASE"] %>
