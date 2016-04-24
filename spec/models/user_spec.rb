@@ -194,6 +194,24 @@ RSpec.describe User, type: :model do
       [@mp1, @mp2].each do |micropost|
         Micropost.find_by_id(micropost.id).should be_nil
       end
-    end    
+    end
+
+    describe "État de l'alimentation" do
+
+      it "devrait avoir une methode `feed`" do
+        @user.should respond_to(:feed)
+      end
+
+      it "devrait inclure les micro-messages de l'utilisateur" do
+        @user.feed.include?(@mp1).should be_true
+        @user.feed.include?(@mp2).should be_true
+      end
+
+      it "ne devrait pas inclure les micro-messages d'un autre utilisateur" do
+        mp3 = Factory(:micropost,
+          :user => Factory(:user, :email => Factory.next(:email)))
+        @user.feed.include?(mp3).should be_false
+      end
+    end
   end
 end

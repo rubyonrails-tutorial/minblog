@@ -50,8 +50,13 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
     user = find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
-  end  
-  
+  end
+
+  def feed
+    # C'est un préliminaire. Cf. chapitre 12 pour l'implémentation complète.
+    Micropost.where("user_id = ?", id)
+  end
+
   private
 
   def encrypt_password
