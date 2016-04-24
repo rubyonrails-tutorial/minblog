@@ -22,8 +22,13 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  timeout: 5000  
-  host: <%= ENV["PG_HOST"] %>
-  database: <%= ENV["PG_DATABASE"] %>
-  username: <%= ENV["PG_USERNAME"] %>
-  password: <%= ENV["PG_PASSWORD"] %>
+  timeout: 5000
+  host: localhost
+  database: dam8dqi03tsgob
+  username: blauygyalpsnjz
+  password: LL52LXA5vhpgqfxinEYC5mDwWD
+
+#  host: <%= ENV["PG_HOST"] %>
+#  database: <%= ENV["PG_DATABASE"] %>
+#  username: <%= ENV["PG_USERNAME"] %>
+#  password: <%= ENV["PG_PASSWORD"] %>
