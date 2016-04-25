@@ -208,7 +208,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgresql-adapter
+  activerecord-postgresql-adapter (~> 0.0.1)
   annotate
   autotest (~> 4.4, >= 4.4.6)
   autotest-rails-pure (~> 4.1, >= 4.1.2)
