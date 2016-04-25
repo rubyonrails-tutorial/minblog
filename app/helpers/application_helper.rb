@@ -5,9 +5,9 @@ module ApplicationHelper
   end
   
   # Retourner un titre basé sur la page.
-  def titel
-    p base_titel = "Mini Blog"
-    p "#{base_titel} - #{@titel}".html_safe if @titel.nil?
+  def title
+    p base_title = "Mini Blog"
+    p "#{base_title} - #{@title}".html_safe if @title.nil?
   end
  
   def errors_full_messages

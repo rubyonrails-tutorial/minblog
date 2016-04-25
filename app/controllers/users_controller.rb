@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   before_action :admin_user, only: [:destroy]
 
   def index
-    @titel = "All users"
+    @title = "All users"
     @users = User.paginate(:page => params[:page])
   end
   
   def new
-    @titel = "Sign up"
+    @title = "Sign up"
     @user = User.new    
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @titel = "Edit user"
+    @title = "Edit user"
   end
 
   def update
@@ -53,13 +53,13 @@ class UsersController < ApplicationController
   end
 
   def following
-    @titel = "Following"
+    @title = "Following"
     @users = @user.following.paginate(:page => params[:page])
     render 'show_follow'
   end
 
   def followers
-    @titel = "Followers"
+    @title = "Followers"
     @users = @user.followers.paginate(:page => params[:page])
     render 'show_follow'
   end
