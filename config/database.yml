@@ -22,7 +22,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  timeout: 5000  
+  timeout: 5000
   host: <%= ENV["PG_HOST"] %>
   database: <%= ENV["PG_DATABASE"] %>
   username: <%= ENV["PG_USERNAME"] %>

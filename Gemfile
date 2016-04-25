@@ -80,6 +80,7 @@ end
 
 group :production do
   gem 'pg', '~> 0.18.4'
+  gem 'activerecord-postgresql-adapter', '~> 0.0.1'
   gem 'rails_12factor', '~> 0.0.3'
   
   # generator the data faker 
