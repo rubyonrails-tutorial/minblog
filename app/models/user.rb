@@ -69,8 +69,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    # C'est un préliminaire. Cf. chapitre 12 pour l'implémentation complète.
-    Micropost.where("user_id = ?", id)
+    Micropost.from_users_followed_by(self)
   end
 
   private

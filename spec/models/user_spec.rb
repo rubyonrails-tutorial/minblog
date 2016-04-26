@@ -197,20 +197,26 @@ RSpec.describe User, type: :model do
     end
 
     describe "État de l'alimentation" do
-
-      it "devrait avoir une methode `feed`" do
+      it "devrait avoir une alimentation" do
         @user.should respond_to(:feed)
       end
 
       it "devrait inclure les micro-messages de l'utilisateur" do
-        @user.feed.include?(@mp1).should be_true
-        @user.feed.include?(@mp2).should be_true
+        @user.feed.should include(@mp1)
+        @user.feed.should include(@mp2)
       end
 
-      it "ne devrait pas inclure les micro-messages d'un autre utilisateur" do
+      it "ne devrait pas inclure les micro-messages d'un utilisateur différent" do
         mp3 = Factory(:micropost,
-          :user => Factory(:user, :email => Factory.next(:email)))
-        @user.feed.include?(mp3).should be_false
+                      :user => Factory(:user, :email => Factory.next(:email)))
+        @user.feed.should_not include(mp3)
+      end
+
+      it "devrait inclure les micro-messages des utilisateurs suivis" do
+        followed = Factory(:user, :email => Factory.next(:email))
+        mp3 = Factory(:micropost, :user => followed)
+        @user.follow!(followed)
+        @user.feed.should include(mp3)
       end
     end
   end
