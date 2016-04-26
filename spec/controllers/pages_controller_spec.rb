@@ -15,7 +15,6 @@ RSpec.describe PagesController, type: :controller do
     
     it "devrait avoir le bon titre" do
       get :home
-      byebug
       expect(response).should have_selector('head title',
         :text => @base_title + " | Home")
     end
