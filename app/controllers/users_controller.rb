@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate, except: [:show, :new, :create]
-  before_action :correct_user, only: [:edit, :updat]  
+  before_action :correct_user, only: [:edit, :update]  
   before_action :set_user, only: [:show, :following, :followers]
   before_action :admin_user, only: [:destroy]
 
