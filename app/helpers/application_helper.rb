@@ -9,11 +9,4 @@ module ApplicationHelper
     p base_title = "Mini Blog"
     p "#{base_title} - #{@title}".html_safe if !@title.nil?
   end
- 
-  def errors_full_messages
-    flash.each do |key, value|
-      p.concat("<div class='flash #{key}'>#{value}</div>".to_s)
-    end
-    p
-  end
 end
