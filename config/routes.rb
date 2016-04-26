@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :relationships, :only => [:create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   
   get 'sessions/signin' => 'sessions#new'
@@ -6,7 +7,11 @@ Rails.application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]  
 
   get 'users/signup' => 'users#new'
-  resources :users  
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
  
   get 'pages/home' => 'pages#home'
   get 'pages/contact' => 'pages#contact'

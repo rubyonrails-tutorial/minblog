@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
-  before_action :authenticate, only: [:index, :edit, :updat, :destroy]
+  before_action :authenticate, except: [:show, :new, :create]
   before_action :correct_user, only: [:edit, :updat]  
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :following, :followers]
   before_action :admin_user, only: [:destroy]
 
   def index
-    @titel = "All users"
+    @title = "All users"
     @users = User.paginate(:page => params[:page])
   end
   
   def new
-    @titel = "Sign up"
+    @title = "Sign up"
     @user = User.new    
   end
 
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @titel = "Edit user"
+    @title = "Edit user"
   end
 
   def update
@@ -50,6 +50,18 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "User deleting."
     redirect_to users_path
+  end
+
+  def following
+    @title = "Following"
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = "Followers"
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
   end
 
   private
