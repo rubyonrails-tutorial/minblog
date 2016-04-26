@@ -9,12 +9,13 @@ RSpec.describe PagesController, type: :controller do
 
   describe "GET #home" do
     it "returns http success" do
-      get 'home'
+      get :home
       expect(response).to have_http_status(:success)
     end
     
     it "devrait avoir le bon titre" do
-      get 'home'
+      get :home
+      byebug
       expect(response).should have_selector('head title',
         :text => @base_title + " | Home")
     end
