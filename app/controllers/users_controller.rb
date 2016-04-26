@@ -15,8 +15,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @title = @user.name    
     @microposts = @user.microposts.paginate(:page => params[:page])
-    @titel = @user.name
   end  
   
   def create
