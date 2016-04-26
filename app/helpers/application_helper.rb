@@ -8,6 +8,7 @@ module ApplicationHelper
   def title
     p base_title = "Mini Blog"
     p "#{base_title} - #{@title}".html_safe if @title.nil?
+    byebug
   end
  
   def errors_full_messages
