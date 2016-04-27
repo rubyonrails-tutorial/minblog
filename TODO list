@@ -1,0 +1,12 @@
+//TODO
+- Send e-mail confirmation (confirmation user and update user)
+- Use Divice for authentification
+- Secure the user DataBase in EVN config/database (or hiden application.yml)
+- Use ActiveAdmin for the settings site
+- Add Ajax for max 140 caracter one post
+- Manage exexeption for all erreur (/user/id not exit)
+- see the end tutorial for other tasks "http://french.railstutorial.org/chapters/following-users#sec:extensions_to_the_sample_application"
+- Documentation API REST with Swagger Bloc 2.0 or +
+- See Authentification JSON REST with Token doorkeeper.
+- Cryptage use SHA1 not SHA2 Warrnig!!
+-
