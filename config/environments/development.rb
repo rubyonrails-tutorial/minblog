@@ -20,13 +20,14 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # these options are only needed if you choose smtp delivery
+  
   config.action_mailer.smtp_settings = {
-    :address        => 'smtp.example.com',
+    :address        => 'smtp.gmail.com',
     :port           => 25,
-    :domain         => 'www.example.com',
+    :domain         => 'www.gmail.com',
     :authentication => :login,
-    :user_name      => 'www',
-    :password       => 'secret'
+    :user_name      => 'minblogtwwiter@gmail.com',
+    :password       => 'bilred86'
   }
 
   # Print deprecation notices to the Rails logger.
