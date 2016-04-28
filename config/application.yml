@@ -5,6 +5,3 @@ PG_HOST: "ec2-54-243-224-151.compute-1.amazonaws.com"
 PG_DATABASE: "dam8dqi03tsgob"
 PG_USERNAME: "blauygyalpsnjz"
 PG_PASSWORD: "LL52LXA5vhpgqfxinEYC5mDwWD"
-
-SMTP_LOGIN: "minblogtwwiter@gmail.com"
-SMTP_PASSWORD: "bilred86"
